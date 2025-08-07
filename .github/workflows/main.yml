@@ -8,7 +8,7 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Checkout MyLibrary Repo
+      - name: Checkout MyLibrary repo
         uses: actions/checkout@v3
         with:
           clean: true
@@ -16,10 +16,14 @@ jobs:
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1
 
+      - name: Clean MyLibrary VB Project
+        run: msbuild MyLibrary.vbproj /t:Clean /p:Configuration=Debug /p:Platform=AnyCPU
+
       - name: Build MyLibrary VB Project
         run: msbuild MyLibrary.vbproj /p:Configuration=Debug /p:Platform=AnyCPU
 
       - name: Copy DLL to DemoCodeBasic bin folder
+        shell: powershell
         run: |
           $sourceDLL = "${{ github.workspace }}\bin\Debug\MyLibrary.dll"
           $destination = "D:\DemoCodeBasic\DemoCodeBasic\bin\MyLibrary.dll"
@@ -29,4 +33,3 @@ jobs:
           }
 
           Copy-Item -Path $sourceDLL -Destination $destination -Force
-        shell: powershell
