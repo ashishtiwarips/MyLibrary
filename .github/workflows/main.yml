@@ -10,8 +10,10 @@ jobs:
     steps:
       - name: Checkout MyLibrary Repo
         uses: actions/checkout@v3
+        with:
+          clean: true
 
-      - name: Setup MSBuild Environment
+      - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1
 
       - name: Build MyLibrary VB Project
@@ -20,6 +22,11 @@ jobs:
       - name: Copy DLL to DemoCodeBasic bin folder
         run: |
           $sourceDLL = "${{ github.workspace }}\bin\Debug\MyLibrary.dll"
-          $destination = "D:\DemoCodeBasic\DemoCodeBasic\bin"
+          $destination = "D:\DemoCodeBasic\DemoCodeBasic\bin\MyLibrary.dll"
+
+          if (Test-Path $destination) {
+            Remove-Item $destination -Force
+          }
+
           Copy-Item -Path $sourceDLL -Destination $destination -Force
         shell: powershell
