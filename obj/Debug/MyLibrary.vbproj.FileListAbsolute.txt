@@ -1,0 +1,10 @@
+C:\Users\Ashish.tiwari\source\repos\MyLibrary\MyLibrary\bin\Debug\MyLibrary.dll
+C:\Users\Ashish.tiwari\source\repos\MyLibrary\MyLibrary\bin\Debug\MyLibrary.pdb
+C:\Users\Ashish.tiwari\source\repos\MyLibrary\MyLibrary\bin\Debug\MyLibrary.xml
+C:\Users\Ashish.tiwari\source\repos\MyLibrary\MyLibrary\obj\Debug\MyLibrary.vbproj.AssemblyReference.cache
+C:\Users\Ashish.tiwari\source\repos\MyLibrary\MyLibrary\obj\Debug\MyLibrary.Resources.resources
+C:\Users\Ashish.tiwari\source\repos\MyLibrary\MyLibrary\obj\Debug\MyLibrary.vbproj.GenerateResource.cache
+C:\Users\Ashish.tiwari\source\repos\MyLibrary\MyLibrary\obj\Debug\MyLibrary.vbproj.CoreCompileInputs.cache
+C:\Users\Ashish.tiwari\source\repos\MyLibrary\MyLibrary\obj\Debug\MyLibrary.dll
+C:\Users\Ashish.tiwari\source\repos\MyLibrary\MyLibrary\obj\Debug\MyLibrary.xml
+C:\Users\Ashish.tiwari\source\repos\MyLibrary\MyLibrary\obj\Debug\MyLibrary.pdb
