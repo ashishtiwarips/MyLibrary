@@ -15,7 +15,7 @@ jobs:
         uses: microsoft/setup-msbuild@v1
 
       - name: Build MyLibrary VB Project
-        run: msbuild MyLibrary.vbproj /p:Configuration=Debug /p:Platform="Any CPU"
+        run: msbuild MyLibrary.vbproj /p:Configuration=Debug /p:Platform=AnyCPU
 
       - name: Copy DLL to DemoCodeBasic bin folder
         run: |
