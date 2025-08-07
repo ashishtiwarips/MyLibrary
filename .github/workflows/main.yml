@@ -1,0 +1,25 @@
+name: Build MyLibrary and Copy DLL
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-copy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout MyLibrary Repo
+        uses: actions/checkout@v3
+
+      - name: Setup MSBuild Environment
+        uses: microsoft/setup-msbuild@v1
+
+      - name: Build MyLibrary VB Project
+        run: msbuild MyLibrary.vbproj /p:Configuration=Debug /p:Platform="Any CPU"
+
+      - name: Copy DLL to DemoCodeBasic bin folder
+        run: |
+          $sourceDLL = "${{ github.workspace }}\bin\Debug\MyLibrary.dll"
+          $destination = "D:\DemoCodeBasic\DemoCodeBasic\bin"
+          Copy-Item -Path $sourceDLL -Destination $destination -Force
+        shell: powershell
