@@ -16,7 +16,7 @@ jobs:
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1
 
-      # Optional: Manually clean bin and obj folders to ensure a truly fresh build
+      # Optional: Clean bin and obj folders in workspace before build to ensure fresh build
       - name: Clean bin and obj folders manually
         shell: powershell
         run: |
@@ -27,7 +27,7 @@ jobs:
             Remove-Item -Recurse -Force "${{ github.workspace }}\obj"
           }
 
-      - name: Force Build MyLibrary VB Project (ignore timestamps)
+      - name: Build MyLibrary VB Project (force build ignoring timestamp)
         run: msbuild MyLibrary.vbproj /t:Build /p:Configuration=Debug /p:Platform=AnyCPU /p:DisableFastUpToDateCheck=true
 
       - name: Copy DLL to DemoCodeBasic bin folder
