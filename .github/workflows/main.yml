@@ -16,8 +16,19 @@ jobs:
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1
 
-      - name: Rebuild MyLibrary VB Project
-        run: msbuild MyLibrary.vbproj /t:Rebuild /p:Configuration=Debug /p:Platform=AnyCPU
+      # Optional: Manually clean bin and obj folders to ensure a truly fresh build
+      - name: Clean bin and obj folders manually
+        shell: powershell
+        run: |
+          if (Test-Path "${{ github.workspace }}\bin") {
+            Remove-Item -Recurse -Force "${{ github.workspace }}\bin"
+          }
+          if (Test-Path "${{ github.workspace }}\obj") {
+            Remove-Item -Recurse -Force "${{ github.workspace }}\obj"
+          }
+
+      - name: Force Build MyLibrary VB Project (ignore timestamps)
+        run: msbuild MyLibrary.vbproj /t:Build /p:Configuration=Debug /p:Platform=AnyCPU /p:DisableFastUpToDateCheck=true
 
       - name: Copy DLL to DemoCodeBasic bin folder
         shell: powershell
