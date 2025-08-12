@@ -1,10 +1,11 @@
 ﻿Namespace MyLibrary
     Public Class GreetingsHelper
         Public Shared Function BuildGreeting(name As String, color As String) As String
-            Return $"Hello, {name}! Your  favorite color ashish (colour) is {color}."
+            Return $"Hello, {name}! Your  favorite color ashish (ytr) is {color}."
         End Function
     End Class
 End Namespace
+
 
 
 
